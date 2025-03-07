@@ -7,6 +7,17 @@ export default class SubversionCharacter extends SubversionActorBase {
     const requiredInteger = { required: true, nullable: false, integer: true };
     const schema = super.defineSchema();
 
+    schema.lineage = new fields.StringField();
+    schema.origin = new fields.StringField();
+    schema.background = new fields.StringField();
+    schema.caste = new fields.StringField();
+    schema.ideology = new fields.StringField();
+    schema.fortune = new fields.SchemaField({
+      current: new fields.NumberField({required: false, integer: true, min: 0 }),
+      total: new fields.NumberField({required: false, integer: true, min: 0})
+    });
+    schema.debts = new fields.ArrayField(new fields.StringField());
+    schema.values = new fields.ArrayField(new fields.StringField());
     schema.attributes = new fields.SchemaField({
       level: new fields.SchemaField({
         value: new fields.NumberField({ ...requiredInteger, initial: 1 })
