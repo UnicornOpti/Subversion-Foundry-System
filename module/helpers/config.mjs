@@ -5,19 +5,19 @@ export const SUBVERSION = {};
  * @type {Object}
  */
 SUBVERSION.abilities = {
-  str: 'SUBVERSION.Ability.Str.long',
-  dex: 'SUBVERSION.Ability.Dex.long',
-  con: 'SUBVERSION.Ability.Con.long',
-  int: 'SUBVERSION.Ability.Int.long',
-  wis: 'SUBVERSION.Ability.Wis.long',
+  agi: 'SUBVERSION.Ability.Agi.long',
+  wit: 'SUBVERSION.Ability.Wit.long',
+  awr: 'SUBVERSION.Ability.Awr.long',
+  bwn: 'SUBVERSION.Ability.Bwn.long',
   cha: 'SUBVERSION.Ability.Cha.long',
+  wil: 'SUBVERSION.Ability.Wil.long',
 };
 
 SUBVERSION.abilityAbbreviations = {
-  str: 'SUBVERSION.Ability.Str.abbr',
-  dex: 'SUBVERSION.Ability.Dex.abbr',
-  con: 'SUBVERSION.Ability.Con.abbr',
-  int: 'SUBVERSION.Ability.Int.abbr',
-  wis: 'SUBVERSION.Ability.Wis.abbr',
+  agi: 'SUBVERSION.Ability.Agi.abbr',
+  wit: 'SUBVERSION.Ability.Wit.abbr',
+  awr: 'SUBVERSION.Ability.Awr.abbr',
+  bwn: 'SUBVERSION.Ability.Bwn.abbr',
   cha: 'SUBVERSION.Ability.Cha.abbr',
+  wil: 'SUBVERSION.Ability.Wil.abbr',
 };
