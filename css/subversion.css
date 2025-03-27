@@ -386,10 +386,48 @@
   display: inline-block;
   width: 100%;
 }
+.subversion div#header-defense div.flexrow {
+  justify-content: space-evenly;
+}
+.subversion div#header-defense div.flexrow div {
+  flex-grow: 0;
+  flex-basis: 110px;
+  border-radius: 7px;
+  padding: 6px 20px;
+  margin: 10px;
+  background-color: slategray;
+}
+.subversion div#header-defense div.flexrow:last-child div {
+  background-color: goldenrod;
+}
+.subversion div#header-defense div.flexrow:last-child div:first-child {
+  background-color: rgb(90, 90, 90);
+}
+.subversion div#header-defense label.resource-label {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  color: white;
+}
 .subversion #header-left-values {
   background-color: rgb(157, 175, 186);
   padding: 10px;
 }
 .subversion input {
   background-color: rgb(255, 255, 255);
+}
+.subversion .area-label {
+  text-transform: uppercase;
+}
+.subversion #header-foot {
+  height: 160px;
+}
+.subversion #header-defense {
+  grid-template-rows: 20px 1fr 1fr;
+}
+.subversion #header-defense .area-label {
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  background-color: gray;
 }

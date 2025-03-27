@@ -13,7 +13,7 @@ export class SubversionActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['subversion', 'sheet', 'actor'],
       width: 900,
-      height: 600,
+      height: 900,
       tabs: [
         {
           navSelector: '.sheet-tabs',
