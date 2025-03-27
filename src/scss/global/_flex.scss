@@ -29,6 +29,10 @@
   flex: 2;
 }
 
+.sheet div.flex-fullwidth {
+  flex-basis: 100%;
+}
+
 // Alignment styles.
 .align-left {
   justify-content: flex-start;

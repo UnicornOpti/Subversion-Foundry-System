@@ -2,42 +2,89 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
-    <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-      {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-      use both the "grid" and "grid-Ncol" class where "N" can be any number
-      from 1 to 12 and will create that number of columns.  --}}
-      <div class="resources grid grid-3col">
+    <div class="flex-fullwidth grid grid-3col">
+      <img class="main-logo" src="/systems/subversion/assets/subversion_logo.png" title="subversion-logo" height="50" width="200"/>
+      <div class="charname">
+        <label for="name" class="resource-label">Name</label>
+        <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
+      </div>
+    </div>
+    
+    <div id="header-main" class="flex-fullwidth header-fields grid">
+      <div id="header-left-values" class="flexcol" style="flex-grow: 0.5">
+        <div>
+          <label for="system.pronouns" class="resource-label">Pronouns</label>
+          <input type="text", name="system.pronouns" value="{{system.pronouns}}" data-dtype="String"/>
+        </div>
+        <div>
+          <label for="system.lineage" class="resource-label">Lineage</label>
+          <input type="text", name="system.lineage" value="{{system.lineage}}" data-dtype="String"/>
+        </div>
+        <div>
+          <label for="system.origin" class="resource-label">Origin</label>
+          <input type="text", name="system.origin" value="{{system.origin}}" data-dtype="String"/>
+        </div>
+        <div>
+          <label for="system.caste" class="resource-label">Caste</label>
+          <input type="text", name="system.pronouns" value="{{system.caste}}" data-dtype="String"/>
+        </div>
+        <div>
+          <label for="system.debt" class="resource-label">Debt</label>
+          <input type="text", name="system.debt" value="{{system.debt}}" data-dtype="String"/>
+        </div>
+      </div>
 
-        {{!-- "flex-group-center" is also defined in the _grid.scss file
-        and it will add a small amount of padding, a border, and will
-        center all of its child elements content and text. --}}
-        <div class="resource flex-group-center">
-          <label for="system.health.value" class="resource-label">Health</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.health.value" value="{{system.health.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/>
+      <div id="header-center-values" class="flexrow">
+        <div class="attribute-values flexcol" style="flex-grow: 0.5">
+          <div>
+            <label for="system.abilities.agi.value" class="resource-label">Agility</label>
+            <input type="text", name="system.abilities.agi.value" value="{{system.abilities.agi.value}}" data-dtype="Number"/>
+          </div>
+          <div>
+            <label for="system.abilities.wit.value" class="resource-label">Wit</label>
+            <input type="text", name="system.abilities.wit.value" value="{{system.abilities.wit.value}}" data-dtype="Number"/>
+          </div>
+                    <div>
+            <label for="system.abilities.awr.value" class="resource-label">Awareness</label>
+            <input type="text", name="system.abilities.awr.value" value="{{system.abilities.awr.value}}" data-dtype="Number"/>
           </div>
         </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.power.value" class="resource-label">Power</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.power.value" value="{{system.power.value}}" data-dtype="Number"/>
-          <span> / </span>
-          <input type="text" name="system.power.max" value="{{system.power.max}}" data-dtype="Number"/>
+        <img id="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="200"/>
+
+        <div class="attribute-values flexcol" style="flex-grow: 0.5">
+          <div>
+            <label for="system.abilities.bwn.value" class="resource-label">Brawn</label>
+            <input type="text", name="system.abilities.bwn.value" value="{{system.abilities.bwn.value}}" data-dtype="Number"/>
+          </div>
+          <div>
+            <label for="system.abilities.cha.value" class="resource-label">Charisma</label>
+            <input type="text", name="system.abilities.cha.value" value="{{system.abilities.cha.value}}" data-dtype="Number"/>
+          </div>
+          <div>
+            <label for="system.abilities.wil.value" class="resource-label">Will</label>
+            <input type="text", name="system.abilities.wil.value" value="{{system.abilities.wil.value}}" data-dtype="Number"/>
           </div>
         </div>
+      </div>
 
-        <div class="resource flex-group-center">
-          <label for="system.attributes.level.value" class="resource-label">Level</label>
-          <div class="resource-content flexrow flex-center flex-between">
-          <input type="text" name="system.attributes.level.value" value="{{system.attributes.level.value}}" data-dtype="Number"/>
-          </div>
+      <div id="header-right-values" class="flexcol" style="flex-grow: 0.5">
+        <div>
+          <label for="system.ideology" class="resource-label">Ideology</label>
+          <input type="text", name="system.ideology" value="{{system.ideology}}" data-dtype="String"/>
         </div>
-
+        <div>
+          <label for="system.value1" class="resource-label">Value</label>
+          <input type="text", name="system.value1" value="{{system.value1}}" data-dtype="String"/>
+        </div>
+        <div>
+          <label for="system.value2" class="resource-label">Value</label>
+          <input type="text", name="system.value2" value="{{system.value2}}" data-dtype="String"/>
+        </div>
+        <div>
+          <label for="system.value3" class="resource-label">Value</label>
+          <input type="text", name="system.value3" value="{{system.value3}}" data-dtype="String"/>
+        </div>
       </div>
     </div>
   </header>
@@ -48,7 +95,7 @@
     <a class="item" data-tab="features">Features</a>
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="items">Items</a>
-    <a class="item" data-tab="spells">Spells</a>
+    <a class="item" data-tab="spells">Abilities</a>
     <a class="item" data-tab="effects">Effects</a>
   </nav>
 

@@ -12,10 +12,48 @@
 @import 'global/grid';
 @import 'global/flex';
 
+@font-face {
+  font-family: 'Goodbrush';
+  src: url('/systems/subversion/assets/fonts/GOODBRUSH.woff') format('woff'), url('/systems/subversion/assets/fonts/GOODBRUSH.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Styles limited to subversion sheets */
 .subversion {
   @import 'components/forms';
   @import 'components/resource';
   @import 'components/items';
   @import 'components/effects';
+
+  #header-main {
+    grid-template-columns: 30% 40% 30%;
+  }
+
+  div.attribute-values {
+    padding: 0 10px;
+  }
+
+  label.resource-label {
+    font-family: 'Goodbrush', sans-serif;
+  }
+
+  div.attribute-values label.resource-label {
+    text-align: center;
+    background-color: yellow;
+    border-radius: 7px 7px 0px 0px;
+    display: inline-block;
+    width: 100%;
+  }
+
+  #header-left-values {
+    background-color: rgba(157, 175, 186, 80);
+    padding: 10px;
+    
+  }
+
+  input {
+    background-color: rgba(255,255,255, 70);
+  }
 }

@@ -188,6 +188,10 @@
   flex: 2;
 }
 
+.sheet div.flex-fullwidth {
+  flex-basis: 100%;
+}
+
 .align-left {
   justify-content: flex-start;
   text-align: left;
@@ -203,6 +207,13 @@
   text-align: center;
 }
 
+@font-face {
+  font-family: "Goodbrush";
+  src: url("/systems/subversion/assets/fonts/GOODBRUSH.woff") format("woff"), url("/systems/subversion/assets/fonts/GOODBRUSH.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 /* Styles limited to subversion sheets */
 .subversion .item-form {
   font-family: "Roboto", sans-serif;
@@ -216,23 +227,18 @@
   justify-content: flex-start;
   margin-bottom: 10px;
 }
-.subversion .sheet-header .profile-img {
-  flex: 0 0 100px;
-  height: 100px;
-  margin-right: 10px;
+.subversion .sheet-header .main-logo {
+  border: none;
 }
-.subversion .sheet-header .header-fields {
-  flex: 1;
+.subversion .sheet-header #profile-img {
+  height: 200px;
+  width: 150px;
 }
-.subversion .sheet-header h1.charname {
-  height: 50px;
-  padding: 0px;
-  margin: 5px 0;
-  border-bottom: 0;
+.subversion .sheet-header .charname {
+  height: 30px;
 }
-.subversion .sheet-header h1.charname input {
+.subversion .sheet-header .charname input {
   width: 100%;
-  height: 100%;
   margin: 0;
 }
 .subversion .sheet-tabs {
@@ -363,4 +369,27 @@
 }
 .subversion .effects .item .effect-controls {
   border: none;
+}
+.subversion #header-main {
+  grid-template-columns: 30% 40% 30%;
+}
+.subversion div.attribute-values {
+  padding: 0 10px;
+}
+.subversion label.resource-label {
+  font-family: "Goodbrush", sans-serif;
+}
+.subversion div.attribute-values label.resource-label {
+  text-align: center;
+  background-color: yellow;
+  border-radius: 7px 7px 0px 0px;
+  display: inline-block;
+  width: 100%;
+}
+.subversion #header-left-values {
+  background-color: rgb(157, 175, 186);
+  padding: 10px;
+}
+.subversion input {
+  background-color: rgb(255, 255, 255);
 }
