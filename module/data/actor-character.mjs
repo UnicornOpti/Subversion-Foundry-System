@@ -13,8 +13,8 @@ export default class SubversionCharacter extends SubversionActorBase {
     schema.caste = new fields.StringField();
     schema.ideology = new fields.StringField();
     schema.fortune = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, min: 0 }),
-      total: new fields.NumberField({required: false, integer: true, min: 0})
+      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
+      total: new fields.NumberField({required: false, integer: true, nullable: true, min: 0})
     });
     schema.debt = new fields.StringField();
     //schema.debts = new fields.ArrayField(new fields.StringField());
@@ -28,24 +28,24 @@ export default class SubversionCharacter extends SubversionActorBase {
       }),
     });
 
-    schema.guard = new fields.NumberField({required: false, integer: true, min: 0 });
-    schema.vigilance = new fields.NumberField({required: false, integer: true, min: 0 });
-    schema.aegis = new fields.NumberField({required: false, integer: true, min: 0 });
-    schema.initiative = new fields.NumberField({required: false, integer: true });
-    schema.armor = new fields.NumberField({required: false, integer: true, min: 0 });
-    schema.adamant = new fields.NumberField({required: false, integer: true, min: 0 });
+    schema.guard = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
+    schema.vigilance = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
+    schema.aegis = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
+    schema.initiative = new fields.NumberField({required: false, integer: true, nullable: true });
+    schema.armor = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
+    schema.adamant = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
 
     schema.health = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, min: 0 }),
-      max:  new fields.NumberField({required: false, integer: true, min: 0 })
+      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
+      max:  new fields.NumberField({required: false, integer: true, nullable: true, min: 0 })
     });
     schema.animity = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, min: 0 }),
-      max:  new fields.NumberField({required: false, integer: true, min: 0 })
+      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
+      max:  new fields.NumberField({required: false, integer: true, nullable: true, min: 0 })
     });
     schema.grit = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, min: 0 }),
-      max:  new fields.NumberField({required: false, integer: true, min: 0 })
+      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
+      max:  new fields.NumberField({required: false, integer: true, nullable: true, min: 0 })
     });
     
     schema.consequences = new fields.NumberField({required: false, integer: true, min: 0, max: 5 });

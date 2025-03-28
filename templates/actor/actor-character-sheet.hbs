@@ -2,9 +2,9 @@
 
   {{!-- Sheet Header --}}
   <header class="sheet-header">
-    <div class="flex-fullwidth grid grid-3col">
+    <div id="logobar" class="flex-fullwidth grid grid-3col">
       <img class="main-logo" src="/systems/subversion/assets/subversion_logo.png" title="subversion-logo" height="50" width="200"/>
-      <div class="charname">
+      <div id="charname">
         <label for="name" class="resource-label">Name</label>
         <input name="name" type="text" value="{{actor.name}}" placeholder="Name"/>
       </div>
@@ -91,36 +91,74 @@
       <div id="header-defense">
         <div class="area-label">Defense</div>
         <div class="flexrow">
-          <div>
+          <div class="condition-tracker">
             <label for="system.guard.value" class="resource-label">Guard</label>
-            <input type="text", name="system.guard.value" value="{{system.guard.value}}" data-dtype="Number"/>
+            <input type="text" name="system.guard.value" value="{{system.guard.value}}" data-dtype="Number"/>
           </div>
-          <div>
+          <div class="condition-tracker">
             <label for="system.vigilance.value" class="resource-label">Vigilance</label>
-            <input type="text", name="system.vigilance.value" value="{{system.vigilance.value}}" data-dtype="Number"/>
+            <input type="text" name="system.vigilance.value" value="{{system.vigilance.value}}" data-dtype="Number"/>
           </div>
-          <div>
+          <div class="condition-tracker"> 
             <label for="system.aegis.value" class="resource-label">Aegis</label>
-            <input type="text", name="system.aegis.value" value="{{system.aegis.value}}" data-dtype="Number"/>
+            <input type="text" name="system.aegis.value" value="{{system.aegis.value}}" data-dtype="Number"/>
           </div>
         </div>
         <div class="flexrow">
-          <div>
+          <div class="condition-tracker">
             <label for="system.initiative.value" class="resource-label">Initiative</label>
-            <input type="text", name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"/>
+            <input type="text" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"/>
           </div>
-          <div>
+          <div class="condition-tracker">
             <label for="system.armor.value" class="resource-label">Armor</label>
-            <input type="text", name="system.armor.value" value="{{system.armor.value}}" data-dtype="Number"/>
+            <input type="text" name="system.armor.value" value="{{system.armor.value}}" data-dtype="Number"/>
           </div>
-          <div>
+          <div class="condition-tracker">
             <label for="system.adamant.value" class="resource-label">Adamant</label>
-            <input type="text", name="system.adamant.value" value="{{system.adamant.value}}" data-dtype="Number"/>
+            <input type="text" name="system.adamant.value" value="{{system.adamant.value}}" data-dtype="Number"/>
           </div>
         </div>
       </div>
       <div id="header-condition">
-
+          <div class="area-label">Condition</div>
+          <div class="flexrow">
+            <div class="condition-tracker">
+              <label for="system.health" class="resource-label">Health</label>
+              <div class="flexrow">
+                <input type="text" name="system.health.current.value" value="{{system.health.current.value}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.health.max.value" value="{{system.health.max.value}}" data-dtype="Number"/>
+              </div>
+            </div>
+            <div class="condition-tracker">
+              <label  for="system.animity" class="resource-label">Animity</label>
+              <div class="flexrow">
+                <input type="text" name="system.animity.current.value" value="{{system.animity.current.value}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.animity.max.value" value="{{system.animity.max.value}}" data-dtype="Number"/>
+              </div>
+            </div>
+            <div class="condition-tracker">
+              <label for="system.grit" class="resource-label">Grit</label>
+              <div class="flexrow">
+                <input type="text" name="system.grit.current.value" value="{{system.grit.current.value}}" data-dtype="Number"/>
+                <span> / </span>
+                <input type="text" name="system.grit.max.value" value="{{system.grit.max.value}}" data-dtype="Number"/>
+              </div>
+            </div>
+          </div>
+          <div class="area-label">Consequences</div>
+          <div>
+            <div class="consequence-holder flexrow align-center">
+              <input type="checkbox" name="system.consequences.value1" value="0" data-dtype="Number"/>
+              <input type="checkbox" name="system.consequences.value2" value="0" data-dtype="Number"/>
+              <input type="checkbox" name="system.consequences.value3" value="0" data-dtype="Number"/>
+              <input type="checkbox" name="system.consequences.value4" value="0" data-dtype="Number"/>
+              <input type="checkbox" name="system.consequences.value5" value="0" data-dtype="Number"/>
+            </div>
+            
+            <label for="system.consequences.value" class="resource-label">+1 Instance of Dulled Each</label>
+          </div>
       </div>
     </div>
   </header>
@@ -128,7 +166,7 @@
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
-    <a class="item" data-tab="features">Features</a>
+    <a class="item" data-tab="features">Details</a>
     <a class="item" data-tab="description">Description</a>
     <a class="item" data-tab="items">Items</a>
     <a class="item" data-tab="spells">Abilities</a>
@@ -140,7 +178,7 @@
 
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
-      <section class="grid grid-3col">
+      <section class="grid grid-2col">
         <aside class="sidebar">
 
           {{!-- The grid classes are defined in scss/global/_grid.scss. To use,

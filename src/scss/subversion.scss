@@ -27,8 +27,13 @@
   @import 'components/items';
   @import 'components/effects';
 
+  --yellow: #e8d529;
+  --pink: #df78af;
+  --darkblue: #2b3a56;
+
   #header-main {
-    grid-template-columns: 30% 40% 30%;
+    grid-template-columns: 25% 40% 25%;
+    padding-left: 5%;
   }
 
   div.attribute-values {
@@ -39,24 +44,105 @@
     font-family: 'Goodbrush', sans-serif;
   }
 
-  div.attribute-values label.resource-label {
-    text-align: center;
-    background-color: yellow;
-    border-radius: 7px 7px 0px 0px;
-    display: inline-block;
-    width: 100%;
+  div#logobar {
+    margin: 10px 0px 0px 0px;
+  }
+
+  #header-left-values, #header-right-values {
+    background-color: rgba(157, 175, 186, 80);
+    padding: 10px;
+    & > div {
+      position: relative;
+      margin-bottom: 6px;
+
+      input {
+        height: 100%;
+        border-radius: 4px;
+      }
+
+      label {
+        position: absolute;
+        bottom: 2px;
+        right: 5px;
+        color: white;
+        padding: 2px;
+        display: inline-block;
+      }
+    }
+  }
+
+  #header-left-values {
+    label {
+      background-color: var(--darkblue)
+    }
+
+    input {
+      border: 2px solid var(--darkblue)
+    }
+  }
+
+  #header-right-values {
+    label {
+      background-color: var(--pink)
+    }
+
+    input {
+      border: 2px solid var(--pink)
+    }
+  }
+
+  div#header-center-values, div#charname {
+    label.resource-label {
+      text-align: center;
+      background-color: var(--yellow);
+      border-radius: 7px 7px 0px 0px;
+      display: inline-block;
+      width: 100%;
+      padding: 1px;
+    }
+
+    input, img {
+      border: 2px solid var(--yellow);
+    }
+  }
+
+  div#header-foot {
+    .area-label {
+      font-size: 18px;
+      height: 24px;
+      text-align: center;
+      color: white;
+      font-weight: bold;
+    }
+
+    label.resource-label {
+      text-align: center;
+      display: inline-block;
+      width: 100%;
+      color: white;
+      font-size: 16px;
+      text-shadow: 2px 1px rgb(50,50,50);
+    }
+
+    div.condition-tracker {
+      flex-grow: 0;
+      border-radius: 7px;
+      margin: 10px;
+    }
   }
 
   div#header-defense {
+    .area-label {
+      background-color: gray;
+    }
+
     div.flexrow {
       justify-content: space-evenly;
 
       div {
         flex-grow: 0;
         flex-basis: 110px;
-        border-radius: 7px;
         padding: 6px 20px;
-        margin: 10px;
         background-color: slategray;
       }
     }
@@ -70,19 +156,50 @@
       }
 
     }
-
-    label.resource-label {
-      text-align: center;
-      display: inline-block;
-      width: 100%;
-      color: white;
-    }
   }
 
-  #header-left-values {
-    background-color: rgba(157, 175, 186, 80);
-    padding: 10px;
+  div#header-condition {
+
+    .area-label {
+      background-color: rgb(141, 89, 106);
+    }
     
+    div.consequence-holder {
+      background-color: rgb(141, 89, 106);
+      border-radius: 0px 0px 10px 10px;
+      width: 90%;
+      margin-left: 5%;
+      padding-bottom: 2px;
+    }
+
+    div.condition-tracker {
+      flex-grow: 0;
+      flex-basis: 120px;
+      padding: 6px 10px;
+      background-color: rgb(141, 89, 106);
+
+      div.flexrow {
+        justify-content: center;
+        width: 100%;
+  
+        input {
+          flex-grow: 1;
+        }
+  
+        span {
+          color: white;
+          font-weight: bold;
+          display: inline-block;
+          font-size: 20px;
+          text-align: center;
+        }
+      }
+    }
+
+    label.resource-label[for="system.consequences.value"] {
+      color: rgb(141, 89, 106);
+      text-shadow: none;
+    }
   }
 
   input {
@@ -97,13 +214,12 @@
     height: 160px;
   }
 
-  #header-defense {
-    grid-template-rows: 20px 1fr 1fr;
-    .area-label {
-      text-align: center;
-      color: white;
-      font-weight: bold;
-      background-color: gray;
+  div#header-bottom {
+    height: 20px;
+    width: 100%;
+    img {
+      width: 100%;
+      border: none;
     }
   }
 

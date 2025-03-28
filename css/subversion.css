@@ -215,6 +215,11 @@
   font-display: swap;
 }
 /* Styles limited to subversion sheets */
+.subversion {
+  --yellow: #e8d529;
+  --pink: #df78af;
+  --darkblue: #2b3a56;
+}
 .subversion .item-form {
   font-family: "Roboto", sans-serif;
 }
@@ -371,7 +376,8 @@
   border: none;
 }
 .subversion #header-main {
-  grid-template-columns: 30% 40% 30%;
+  grid-template-columns: 25% 40% 25%;
+  padding-left: 5%;
 }
 .subversion div.attribute-values {
   padding: 0 10px;
@@ -379,12 +385,74 @@
 .subversion label.resource-label {
   font-family: "Goodbrush", sans-serif;
 }
-.subversion div.attribute-values label.resource-label {
+.subversion div#logobar {
+  margin: 10px 0px 0px 0px;
+}
+.subversion #header-left-values, .subversion #header-right-values {
+  background-color: rgb(157, 175, 186);
+  padding: 10px;
+}
+.subversion #header-left-values > div, .subversion #header-right-values > div {
+  position: relative;
+  margin-bottom: 6px;
+}
+.subversion #header-left-values > div input, .subversion #header-right-values > div input {
+  height: 100%;
+  border-radius: 4px;
+}
+.subversion #header-left-values > div label, .subversion #header-right-values > div label {
+  position: absolute;
+  bottom: 2px;
+  right: 5px;
+  color: white;
+  padding: 2px;
+  display: inline-block;
+}
+.subversion #header-left-values label {
+  background-color: var(--darkblue);
+}
+.subversion #header-left-values input {
+  border: 2px solid var(--darkblue);
+}
+.subversion #header-right-values label {
+  background-color: var(--pink);
+}
+.subversion #header-right-values input {
+  border: 2px solid var(--pink);
+}
+.subversion div#header-center-values label.resource-label, .subversion div#charname label.resource-label {
   text-align: center;
-  background-color: yellow;
+  background-color: var(--yellow);
   border-radius: 7px 7px 0px 0px;
   display: inline-block;
   width: 100%;
+  padding: 1px;
+}
+.subversion div#header-center-values input, .subversion div#header-center-values img, .subversion div#charname input, .subversion div#charname img {
+  border: 2px solid var(--yellow);
+}
+.subversion div#header-foot .area-label {
+  font-size: 18px;
+  height: 24px;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+.subversion div#header-foot label.resource-label {
+  text-align: center;
+  display: inline-block;
+  width: 100%;
+  color: white;
+  font-size: 16px;
+  text-shadow: 2px 1px rgb(50, 50, 50);
+}
+.subversion div#header-foot div.condition-tracker {
+  flex-grow: 0;
+  border-radius: 7px;
+  margin: 10px;
+}
+.subversion div#header-defense .area-label {
+  background-color: gray;
 }
 .subversion div#header-defense div.flexrow {
   justify-content: space-evenly;
@@ -392,9 +460,7 @@
 .subversion div#header-defense div.flexrow div {
   flex-grow: 0;
   flex-basis: 110px;
-  border-radius: 7px;
   padding: 6px 20px;
-  margin: 10px;
   background-color: slategray;
 }
 .subversion div#header-defense div.flexrow:last-child div {
@@ -403,15 +469,39 @@
 .subversion div#header-defense div.flexrow:last-child div:first-child {
   background-color: rgb(90, 90, 90);
 }
-.subversion div#header-defense label.resource-label {
-  text-align: center;
-  display: inline-block;
-  width: 100%;
-  color: white;
+.subversion div#header-condition .area-label {
+  background-color: rgb(141, 89, 106);
 }
-.subversion #header-left-values {
-  background-color: rgb(157, 175, 186);
-  padding: 10px;
+.subversion div#header-condition div.consequence-holder {
+  background-color: rgb(141, 89, 106);
+  border-radius: 0px 0px 10px 10px;
+  width: 90%;
+  margin-left: 5%;
+  padding-bottom: 2px;
+}
+.subversion div#header-condition div.condition-tracker {
+  flex-grow: 0;
+  flex-basis: 120px;
+  padding: 6px 10px;
+  background-color: rgb(141, 89, 106);
+}
+.subversion div#header-condition div.condition-tracker div.flexrow {
+  justify-content: center;
+  width: 100%;
+}
+.subversion div#header-condition div.condition-tracker div.flexrow input {
+  flex-grow: 1;
+}
+.subversion div#header-condition div.condition-tracker div.flexrow span {
+  color: white;
+  font-weight: bold;
+  display: inline-block;
+  font-size: 20px;
+  text-align: center;
+}
+.subversion div#header-condition label.resource-label[for="system.consequences.value"] {
+  color: rgb(141, 89, 106);
+  text-shadow: none;
 }
 .subversion input {
   background-color: rgb(255, 255, 255);
@@ -422,12 +512,13 @@
 .subversion #header-foot {
   height: 160px;
 }
-.subversion #header-defense {
-  grid-template-rows: 20px 1fr 1fr;
+.subversion div#header-bottom {
+  height: 20px;
+  width: 100%;
 }
-.subversion #header-defense .area-label {
-  text-align: center;
-  color: white;
-  font-weight: bold;
-  background-color: gray;
+.subversion div#header-bottom img {
+  width: 100%;
+  border: none;
 }
+
+/*# sourceMappingURL=subversion.css.map */
