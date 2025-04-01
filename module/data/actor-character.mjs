@@ -13,8 +13,8 @@ export default class SubversionCharacter extends SubversionActorBase {
     schema.caste = new fields.StringField();
     schema.ideology = new fields.StringField();
     schema.fortune = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
-      total: new fields.NumberField({required: false, integer: true, nullable: true, min: 0})
+      current: new fields.NumberField({ initial: 1 }),
+      total: new fields.NumberField({ initial: 1 })
     });
     schema.debt = new fields.StringField();
     //schema.debts = new fields.ArrayField(new fields.StringField());
@@ -28,28 +28,27 @@ export default class SubversionCharacter extends SubversionActorBase {
       }),
     });
 
-    schema.guard = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
-    schema.vigilance = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
-    schema.aegis = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
-    schema.initiative = new fields.NumberField({required: false, integer: true, nullable: true });
-    schema.armor = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
-    schema.adamant = new fields.NumberField({required: false, integer: true, nullable: true, min: 0 });
+    schema.guard = new fields.NumberField({ initial: 1 });
+    schema.vigilance = new fields.NumberField({ initial: 1 });
+    schema.aegis = new fields.NumberField({ initial: 1 });
+    schema.initiative = new fields.NumberField({ initial: 1 });
+    schema.armor = new fields.NumberField({ initial: 1 });
+    schema.adamant = new fields.NumberField({ initial: 1 });
+    
+    //schema.consequences = new fields.NumberField({integer: true, initial: 0, min: 0, max: 5 });
 
-    schema.health = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
-      max:  new fields.NumberField({required: false, integer: true, nullable: true, min: 0 })
+    schema.consequences = new fields.SchemaField({
+      value: new fields.NumberField({integer: true, initial: 0, min: 0, max: 5 }),
+      show: new fields.SchemaField({
+        show1: new fields.BooleanField(),
+        show2: new fields.BooleanField(),
+        show3: new fields.BooleanField(),
+        show4: new fields.BooleanField(),
+        show5: new fields.BooleanField()
+      })
     });
-    schema.animity = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
-      max:  new fields.NumberField({required: false, integer: true, nullable: true, min: 0 })
-    });
-    schema.grit = new fields.SchemaField({
-      current: new fields.NumberField({required: false, integer: true, nullable: true, min: 0 }),
-      max:  new fields.NumberField({required: false, integer: true, nullable: true, min: 0 })
-    });
-    
-    schema.consequences = new fields.NumberField({required: false, integer: true, min: 0, max: 5 });
-    
+
+
     // Iterate over ability names and create a new SchemaField for each.
     schema.abilities = new fields.SchemaField(Object.keys(CONFIG.SUBVERSION.abilities).reduce((obj, ability) => {
       obj[ability] = new fields.SchemaField({
@@ -68,6 +67,10 @@ export default class SubversionCharacter extends SubversionActorBase {
       this.abilities[key].mod = Math.floor((this.abilities[key].value - 10) / 2);
       // Handle ability label localization.
       this.abilities[key].label = game.i18n.localize(CONFIG.SUBVERSION.abilities[key]) ?? key;
+    }
+
+    for (var i = 1; i <= 5; i++ ) {
+        this.consequences.show['show' + i] = this.consequences.value >= i;
     }
   }
 

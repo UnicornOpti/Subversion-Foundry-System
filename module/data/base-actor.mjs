@@ -9,12 +9,16 @@ export default class SubversionActorBase extends SubversionDataModel {
 
     schema.pronouns = new fields.StringField();
     schema.health = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
-      max: new fields.NumberField({ ...requiredInteger, initial: 10 })
+      current: new fields.NumberField({ initial: 1 }),
+      max:  new fields.NumberField({ initial: 1 })
     });
-    schema.power = new fields.SchemaField({
-      value: new fields.NumberField({ ...requiredInteger, initial: 5, min: 0 }),
-      max: new fields.NumberField({ ...requiredInteger, initial: 5 })
+    schema.animity = new fields.SchemaField({
+      current: new fields.NumberField({ initial: 1 }),
+      max:  new fields.NumberField({ initial: 1 })
+    });
+    schema.grit = new fields.SchemaField({
+      current: new fields.NumberField({ initial: 1 }),
+      max:  new fields.NumberField({ initial: 1 })
     });
     schema.biography = new fields.StringField({ required: true, blank: true }); // equivalent to passing ({initial: ""}) for StringFields
 

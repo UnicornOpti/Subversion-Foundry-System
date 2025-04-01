@@ -8,6 +8,20 @@
       "Cha": { "long": "Charisma", "abbr": "cha" },
       "Wil": { "long": "Will", "abbr": "wil" }
     },
+    "Skill": {
+      "Art": "Arts",
+      "Dec": "Deception",
+      "Hum": "Humanities",
+      "Inf": "Influence",
+      "Mag": "Magic Arts",
+      "Mel": "Melee Combat",
+      "Obs": "Observation",
+      "Phy": "Physicality",
+      "Pil": "Piloting",
+      "Ran": "Ranged Combat",
+      "Sci": "Science",
+      "Tec": "Tech"
+    },
     "SheetLabels": {
       "Actor": "Subversion Actor Sheet",
       "Item": "Subversion Item Sheet"

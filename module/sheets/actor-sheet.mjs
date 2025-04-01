@@ -62,7 +62,7 @@ export class SubversionActorSheet extends ActorSheet {
 
     // Enrich biography info for display
     // Enrichment turns text like `[[/r 1d20]]` into buttons
-    context.enrichedBiography = await TextEditor.enrichHTML(
+    /*context.enrichedBiography = await TextEditor.enrichHTML(
       this.actor.system.biography,
       {
         // Whether to show secret blocks in the finished html
@@ -74,7 +74,7 @@ export class SubversionActorSheet extends ActorSheet {
         // Relative UUID resolution
         relativeTo: this.actor,
       }
-    );
+    );*/
 
     // Prepare active effects
     context.effects = prepareActiveEffectCategories(
@@ -159,6 +159,12 @@ export class SubversionActorSheet extends ActorSheet {
     // -------------------------------------------------------------
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
+
+    html.on('click', 'div.consequence-holder > input', (ev) => {
+      const chkbox = $(ev.currentTarget);
+      const val = chkbox.is(':checked') ? chkbox.val() : chkbox.val() - 1;
+      $('div.consequence-holder > input[name="system.consequences.value"]').val(val);
+    });
 
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));

@@ -92,30 +92,30 @@
         <div class="area-label">Defense</div>
         <div class="flexrow">
           <div class="condition-tracker">
-            <label for="system.guard.value" class="resource-label">Guard</label>
-            <input type="text" name="system.guard.value" value="{{system.guard.value}}" data-dtype="Number"/>
+            <label for="system.guard" class="resource-label">Guard</label>
+            <input type="text" name="system.guard" value="{{system.guard}}" data-dtype="Number"/>
           </div>
           <div class="condition-tracker">
-            <label for="system.vigilance.value" class="resource-label">Vigilance</label>
-            <input type="text" name="system.vigilance.value" value="{{system.vigilance.value}}" data-dtype="Number"/>
+            <label for="system.vigilance" class="resource-label">Vigilance</label>
+            <input type="text" name="system.vigilance" value="{{system.vigilance}}" data-dtype="Number"/>
           </div>
           <div class="condition-tracker"> 
-            <label for="system.aegis.value" class="resource-label">Aegis</label>
-            <input type="text" name="system.aegis.value" value="{{system.aegis.value}}" data-dtype="Number"/>
+            <label for="system.aegis" class="resource-label">Aegis</label>
+            <input type="text" name="system.aegis" value="{{system.aegis}}" data-dtype="Number"/>
           </div>
         </div>
         <div class="flexrow">
           <div class="condition-tracker">
-            <label for="system.initiative.value" class="resource-label">Initiative</label>
-            <input type="text" name="system.initiative.value" value="{{system.initiative.value}}" data-dtype="Number"/>
+            <label for="system.initiative" class="resource-label">Initiative</label>
+            <input type="text" name="system.initiative" value="{{system.initiative}}" data-dtype="Number"/>
           </div>
           <div class="condition-tracker">
-            <label for="system.armor.value" class="resource-label">Armor</label>
-            <input type="text" name="system.armor.value" value="{{system.armor.value}}" data-dtype="Number"/>
+            <label for="system.armor" class="resource-label">Armor</label>
+            <input type="text" name="system.armor" value="{{system.armor}}" data-dtype="Number"/>
           </div>
           <div class="condition-tracker">
-            <label for="system.adamant.value" class="resource-label">Adamant</label>
-            <input type="text" name="system.adamant.value" value="{{system.adamant.value}}" data-dtype="Number"/>
+            <label for="system.adamant" class="resource-label">Adamant</label>
+            <input type="text" name="system.adamant" value="{{system.adamant}}" data-dtype="Number"/>
           </div>
         </div>
       </div>
@@ -125,39 +125,39 @@
             <div class="condition-tracker">
               <label for="system.health" class="resource-label">Health</label>
               <div class="flexrow">
-                <input type="text" name="system.health.current.value" value="{{system.health.current.value}}" data-dtype="Number"/>
+                <input type="text" name="system.health.current" value="{{system.health.current}}" data-dtype="Number"/>
                 <span> / </span>
-                <input type="text" name="system.health.max.value" value="{{system.health.max.value}}" data-dtype="Number"/>
+                <input type="text" name="system.health.max" value="{{system.health.max}}" data-dtype="Number"/>
               </div>
             </div>
             <div class="condition-tracker">
               <label  for="system.animity" class="resource-label">Animity</label>
               <div class="flexrow">
-                <input type="text" name="system.animity.current.value" value="{{system.animity.current.value}}" data-dtype="Number"/>
+                <input type="text" name="system.animity.current" value="{{system.animity.current}}" data-dtype="Number"/>
                 <span> / </span>
-                <input type="text" name="system.animity.max.value" value="{{system.animity.max.value}}" data-dtype="Number"/>
+                <input type="text" name="system.animity.max" value="{{system.animity.max}}" data-dtype="Number"/>
               </div>
             </div>
             <div class="condition-tracker">
               <label for="system.grit" class="resource-label">Grit</label>
               <div class="flexrow">
-                <input type="text" name="system.grit.current.value" value="{{system.grit.current.value}}" data-dtype="Number"/>
+                <input type="text" name="system.grit.current" value="{{system.grit.current}}" data-dtype="Number"/>
                 <span> / </span>
-                <input type="text" name="system.grit.max.value" value="{{system.grit.max.value}}" data-dtype="Number"/>
+                <input type="text" name="system.grit.max" value="{{system.grit.max}}" data-dtype="Number"/>
               </div>
             </div>
           </div>
           <div class="area-label">Consequences</div>
           <div>
             <div class="consequence-holder flexrow align-center">
-              <input type="checkbox" name="system.consequences.value1" value="0" data-dtype="Number"/>
-              <input type="checkbox" name="system.consequences.value2" value="0" data-dtype="Number"/>
-              <input type="checkbox" name="system.consequences.value3" value="0" data-dtype="Number"/>
-              <input type="checkbox" name="system.consequences.value4" value="0" data-dtype="Number"/>
-              <input type="checkbox" name="system.consequences.value5" value="0" data-dtype="Number"/>
-            </div>
-            
-            <label for="system.consequences.value" class="resource-label">+1 Instance of Dulled Each</label>
+              <input type="checkbox" name="system.consequences.show.show1" value="1" data-dtype="Boolean" {{checked system.consequences.show.show1}}/>
+              <input type="checkbox" name="system.consequences.show.show2" value="2" data-dtype="Boolean" {{checked system.consequences.show.show2}}/>
+              <input type="checkbox" name="system.consequences.show.show3" value="3" data-dtype="Boolean" {{checked system.consequences.show.show3}}/>
+              <input type="checkbox" name="system.consequences.show.show4" value="4" data-dtype="Boolean" {{checked system.consequences.show.show4}}/>
+              <input type="checkbox" name="system.consequences.show.show5" value="5" data-dtype="Boolean" {{checked system.consequences.show.show5}}/>
+              <input type="hidden" name="system.consequences.value" value="{{system.consequences.value}}" data-dtype="Number" />
+            </div>        
+            <label for="system.consequences" class="resource-label">+1 Instance of Dulled Each</label>
           </div>
       </div>
     </div>
@@ -179,12 +179,15 @@
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
       <section class="grid grid-2col">
-        <aside class="sidebar">
+        <div id="impulses" class="flexcol">
+          <div class="area-label">Impulses</div>
+        </div>
 
-          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
-          use both the "grid" and "grid-Ncol" class where "N" can be any number
-          from 1 to 12 and will create that number of columns.  --}}
-          <div class="abilities flexcol">
+        <div id="skills" class="flexcol">
+          <div class="area-label">Skills</div>
+        </div>
+        <!--
+            <div class="abilities flexcol">
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
               <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{localize (lookup @root.config.abilities key)}}">{{localize (lookup @root.config.abilities key)}}</label>
@@ -193,14 +196,18 @@
             </div>
             {{/each}}
           </div>
-        </aside>
+        </div>
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns.  --}}
+
 
         {{!-- For the main features list, span the right two columns --}}
         <section class="main grid-span-2">
           {{!-- This is a Handlebars partial. They're stored in the `/parts` folder next to this sheet, and defined in module/helpers/templates.mjs --}}
           {{> "systems/subversion/templates/actor/parts/actor-features.hbs"}}
         </section>
-
+      -->
       </section>
     </div>
 

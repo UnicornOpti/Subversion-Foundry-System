@@ -30,6 +30,7 @@
   --yellow: #e8d529;
   --pink: #df78af;
   --darkblue: #2b3a56;
+  --salmon:  rgb(141, 89, 106);
 
   #header-main {
     grid-template-columns: 25% 40% 25%;
@@ -161,11 +162,11 @@
   div#header-condition {
 
     .area-label {
-      background-color: rgb(141, 89, 106);
+      background-color: var(--salmon);
     }
     
     div.consequence-holder {
-      background-color: rgb(141, 89, 106);
+      background-color: var(--salmon);
       border-radius: 0px 0px 10px 10px;
       width: 90%;
       margin-left: 5%;
@@ -176,7 +177,7 @@
       flex-grow: 0;
       flex-basis: 120px;
       padding: 6px 10px;
-      background-color: rgb(141, 89, 106);
+      background-color: var(--salmon);
 
       div.flexrow {
         justify-content: center;
@@ -196,8 +197,8 @@
       }
     }
 
-    label.resource-label[for="system.consequences.value"] {
-      color: rgb(141, 89, 106);
+    label.resource-label[for="system.consequences"] {
+      color: var(--salmon);
       text-shadow: none;
     }
   }

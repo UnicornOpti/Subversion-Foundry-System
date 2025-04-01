@@ -21,3 +21,18 @@ SUBVERSION.abilityAbbreviations = {
   cha: 'SUBVERSION.Ability.Cha.abbr',
   wil: 'SUBVERSION.Ability.Wil.abbr',
 };
+
+SUBVERSION.skills = {
+  art: 'SUBVERSION.Skill.Art',
+  dec: 'SUBVERSION.Skill.Dec',
+  hum: 'SUBVERSION.Skill.Hum',
+  inf: 'SUBVERSION.Skill.Inf',
+  mag: 'SUBVERSION.Skill.Mag',
+  mel: 'SUBVERSION.Skill.Mel',
+  obs: 'SUBVERSION.Skill.Obs',
+  phy: 'SUBVERSION.Skill.Phy',
+  pil: 'SUBVERSION.Skill.Pil',
+  ran: 'SUBVERSION.Skill.Ran',
+  sci: 'SUBVERSION.Skill.Sci',
+  tec: 'SUBVERSION.Skill.Tec'
+}

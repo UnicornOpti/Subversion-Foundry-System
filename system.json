@@ -21,6 +21,11 @@
   },
   "esmodules": ["module/subversion.mjs"],
   "styles": ["css/subversion.css"],
+  "documentTypes": {
+    "Actor": {
+      "character": {}
+    }
+  },
   "languages": [
     {
       "lang": "en",
