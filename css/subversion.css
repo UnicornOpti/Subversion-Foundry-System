@@ -220,6 +220,7 @@
   --pink: #df78af;
   --darkblue: #2b3a56;
   --salmon: rgb(141, 89, 106);
+  --stdshadow: 2px 1px rgb(50,50,50);
 }
 .subversion .item-form {
   font-family: "Roboto", sans-serif;
@@ -376,6 +377,74 @@
 .subversion .effects .item .effect-controls {
   border: none;
 }
+.subversion .skills-header {
+  height: 24px;
+  margin: 4px 6px 0px;
+  padding: 0;
+  align-items: center;
+  font-weight: bold;
+  color: white;
+}
+.subversion .skills-header > * {
+  font-size: 16px;
+  text-align: center;
+  font-family: "Goodbrush", sans-serif;
+  text-shadow: var(--stdshadow);
+}
+.subversion .skills-header .skill-name {
+  text-align: left;
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+.subversion .skills-header .skill-attr {
+  text-align: right;
+  flex-basis: 10%;
+  flex-grow: 0.5;
+}
+.subversion div#skills {
+  position: relative;
+}
+.subversion div#skills > .area-label {
+  font-size: 32px;
+  text-align: center;
+  font-family: "Goodbrush", sans-serif;
+  color: rgba(150, 120, 70, 0.6);
+  position: absolute;
+  text-align: center;
+  width: 100%;
+}
+.subversion .skill {
+  background: rgb(223, 209, 185);
+  padding: 8px;
+  margin: 6px;
+}
+.subversion .skill input {
+  max-width: 75%;
+  text-align: center;
+}
+.subversion .skill .skill-input {
+  text-align: center;
+}
+.subversion .skill .skill-name, .subversion .skill .skill-attr {
+  font-family: "Goodbrush", sans-serif;
+  font-size: 16px;
+  color: var(--darkblue);
+  padding-top: 4px;
+}
+.subversion .skill .skill-name {
+  flex-basis: 20%;
+  flex-grow: 1;
+}
+.subversion .skill .skill-attr {
+  flex-basis: 10%;
+  flex-grow: 0.5;
+  text-align: right;
+}
+.subversion .skills-list {
+  background: rgba(150, 120, 70, 0.6);
+  padding-bottom: 10px;
+  margin-top: 30px;
+}
 .subversion #header-main {
   grid-template-columns: 25% 40% 25%;
   padding-left: 5%;
@@ -432,12 +501,19 @@
 .subversion div#header-center-values input, .subversion div#header-center-values img, .subversion div#charname input, .subversion div#charname img {
   border: 2px solid var(--yellow);
 }
+.subversion img#header-separator {
+  width: 100%;
+  border: none;
+  height: unset;
+  margin-right: unset;
+}
 .subversion div#header-foot .area-label {
   font-size: 18px;
   height: 24px;
   text-align: center;
   color: white;
   font-weight: bold;
+  text-shadow: var(--stdshadow);
 }
 .subversion div#header-foot label.resource-label {
   text-align: center;
@@ -445,7 +521,7 @@
   width: 100%;
   color: white;
   font-size: 16px;
-  text-shadow: 2px 1px rgb(50, 50, 50);
+  text-shadow: var(--stdshadow);
 }
 .subversion div#header-foot div.condition-tracker {
   flex-grow: 0;
@@ -520,6 +596,45 @@
 .subversion div#header-bottom img {
   width: 100%;
   border: none;
+}
+.subversion #grid-details {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: 33% 67%;
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+.subversion div#impulses .area-label {
+  font-size: 32px;
+  text-align: center;
+  font-family: "Goodbrush", sans-serif;
+  background: #f9ee91;
+  color: white;
+  text-shadow: var(--stdshadow);
+  margin-bottom: 8px;
+}
+.subversion div#impulses div.impulse-input {
+  position: relative;
+  margin-bottom: 6px;
+  border: solid 2px var(--yellow);
+  border-radius: 4px;
+}
+.subversion div#impulses div.impulse-input textarea {
+  border: none;
+  padding-top: 8px;
+  background-color: white;
+}
+.subversion div#impulses div.impulse-input label {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  text-align: right;
+  color: white;
+  background-color: var(--yellow);
+  padding: 2px;
+  display: inline-block;
+  text-shadow: var(--stdshadow);
 }
 
 /*# sourceMappingURL=subversion.css.map */

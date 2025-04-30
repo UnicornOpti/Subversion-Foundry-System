@@ -26,11 +26,13 @@
   @import 'components/resource';
   @import 'components/items';
   @import 'components/effects';
+  @import 'components/skills';
 
   --yellow: #e8d529;
   --pink: #df78af;
   --darkblue: #2b3a56;
   --salmon:  rgb(141, 89, 106);
+  --stdshadow: 2px 1px rgb(50,50,50);
 
   #header-main {
     grid-template-columns: 25% 40% 25%;
@@ -107,6 +109,13 @@
     }
   }
 
+  img#header-separator {
+    width: 100%;
+    border: none;
+    height: unset;
+    margin-right: unset;
+  }
+
   div#header-foot {
     .area-label {
       font-size: 18px;
@@ -114,6 +123,7 @@
       text-align: center;
       color: white;
       font-weight: bold;
+      text-shadow: var(--stdshadow);
     }
 
     label.resource-label {
@@ -122,7 +132,7 @@
       width: 100%;
       color: white;
       font-size: 16px;
-      text-shadow: 2px 1px rgb(50,50,50);
+      text-shadow: var(--stdshadow);
     }
 
     div.condition-tracker {
@@ -221,6 +231,52 @@
     img {
       width: 100%;
       border: none;
+    }
+  }
+
+  #grid-details {
+    display: grid;
+    grid-column: span 2 / span 2;
+    grid-template-columns: 33% 67%;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  div#impulses {
+    .area-label {
+      font-size: 32px;
+      text-align: center;
+      font-family: 'Goodbrush', sans-serif;
+      background: #f9ee91;
+      color: white;
+      text-shadow: var(--stdshadow);
+      margin-bottom: 8px;
+    }
+
+    div.impulse-input {
+      position: relative;
+      margin-bottom: 6px;
+      border: solid 2px var(--yellow);
+      border-radius: 4px;
+
+      textarea {
+        border: none;
+        padding-top: 8px;
+        background-color: white;
+      }
+
+      label {
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        text-align: right;
+        color: white;
+        background-color: var(--yellow);
+        padding: 2px;
+        display: inline-block;
+        text-shadow: var(--stdshadow);
+      }
     }
   }
 

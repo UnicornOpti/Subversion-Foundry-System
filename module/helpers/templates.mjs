@@ -10,6 +10,7 @@ export const preloadHandlebarsTemplates = async function () {
     'systems/subversion/templates/actor/parts/actor-items.hbs',
     'systems/subversion/templates/actor/parts/actor-spells.hbs',
     'systems/subversion/templates/actor/parts/actor-effects.hbs',
+    'systems/subversion/templates/actor/parts/actor-skills.hbs',
     // Item partials
     'systems/subversion/templates/item/parts/item-effects.hbs',
   ]);

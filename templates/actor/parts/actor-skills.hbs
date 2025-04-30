@@ -1,0 +1,20 @@
+<ol class='skills-list'>
+    <li class='item flexrow skills-header'>
+        <div class='skill-name'></div>
+        <div class='skill-attr'></div>
+        <div>{{localize 'Rank'}}</div>
+        <div>{{localize 'Attribute'}}</div>
+        <div>{{localize 'Misc'}}</div>
+        <div>{{localize 'Roll'}}</div>
+    </li>
+    {{#each system.skills as |skill key|}}
+    <li class="skill flexrow" >
+        <div class="skill-name">{{localize (lookup @root.config.skills key)}}</div>
+        <div class="skill-attr">({{skill.attrLabel}})</div>
+        <div class="skill-input"><input type="text" name="system.skills.{{key}}.rank" value="{{skill.rank}}" data-dtype="Number"/></div>
+        <div class="skill-input"><input type="text" name="system.skills.{{key}}.attr" value="{{skill.attr}}" data-dtype="Number" readonly=""/></div>
+        <div class="skill-input"><input type="text" name="system.skills.{{key}}.misc" value="{{skill.misc}}" data-dtype="Number"/></div>
+        <div class="skill-input"><input type="text" name="system.skills.{{key}}.roll.value" value="{{skill.roll.value}}" data-dtype="String" readonly=""/></div>
+    </li>
+     {{/each}}
+</ol>

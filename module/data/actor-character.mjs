@@ -48,11 +48,34 @@ export default class SubversionCharacter extends SubversionActorBase {
       })
     });
 
+    schema.impulses = new fields.SchemaField({
+      names: new fields.StringField(),
+      triggers: new fields.StringField(),
+      downtime: new fields.StringField()
+    });
 
     // Iterate over ability names and create a new SchemaField for each.
     schema.abilities = new fields.SchemaField(Object.keys(CONFIG.SUBVERSION.abilities).reduce((obj, ability) => {
       obj[ability] = new fields.SchemaField({
-        value: new fields.NumberField({ ...requiredInteger, initial: 10, min: 0 }),
+        value: new fields.NumberField({ ...requiredInteger, initial: 0, max: 7 }),
+      });
+      return obj;
+    }, {}));
+
+    schema.skills = new fields.SchemaField(Object.keys(CONFIG.SUBVERSION.skills).reduce((obj, skill) => {
+      obj[skill] = new fields.SchemaField({
+        label: new fields.StringField(),
+        attrLabel: new fields.StringField(),
+        rank: new fields.NumberField({ ...requiredInteger, initial: 0, max: 6}),
+        attr: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+        misc: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+        roll: new fields.SchemaField({
+          dice: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+          mod: new fields.NumberField({ ...requiredInteger, initial: 0 }),
+          dulled: new fields.NumberField({ required: false, nullable: true, integer: true }),
+          reliable: new fields.NumberField({ required: false, nullable: true, integer: true }),
+          value: new fields.StringField()
+        })
       });
       return obj;
     }, {}));
@@ -64,9 +87,22 @@ export default class SubversionCharacter extends SubversionActorBase {
     // Loop through ability scores, and add their modifiers to our sheet output.
     for (const key in this.abilities) {
       // Calculate the modifier using d20 rules.
-      this.abilities[key].mod = Math.floor((this.abilities[key].value - 10) / 2);
+      //this.abilities[key].mod = Math.floor((this.abilities[key].value - 10) / 2);
       // Handle ability label localization.
       this.abilities[key].label = game.i18n.localize(CONFIG.SUBVERSION.abilities[key]) ?? key;
+      this.abilities[key].abbr = game.i18n.localize(CONFIG.SUBVERSION.abilityAbbreviations[key]) ?? key;
+    }
+
+    for (const key in this.skills) {
+      var abiKey = CONFIG.SUBVERSION.skillDefaults[key];
+      this.skills[key].attr = this.abilities[abiKey].value;
+      this.skills[key].label = game.i18n.localize(CONFIG.SUBVERSION.skills[key]) ?? key;
+      this.skills[key].attrLabel = game.i18n.localize(CONFIG.SUBVERSION.abilityAbbreviations[abiKey]) ?? key;
+
+      this.skills[key].roll.dice = 3 + this.skills[key].rank;
+      this.skills[key].roll.mod = this.skills[key].attr + this.skills[key].misc;
+
+      this.skills[key].roll.value = "" + this.skills[key].roll.dice + "D6+" + this.skills[key].roll.mod;
     }
 
     for (var i = 1; i <= 5; i++ ) {

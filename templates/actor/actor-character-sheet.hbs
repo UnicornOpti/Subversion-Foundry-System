@@ -87,6 +87,7 @@
         </div>
       </div>
     </div>
+    <img id="header-separator" src="/systems/subversion/assets/decoration.webp" title="header-deco"/>
     <div id="header-foot" class="grid-2col header-fields">
       <div id="header-defense">
         <div class="area-label">Defense</div>
@@ -178,13 +179,26 @@
 
     {{!-- Owned Features Tab --}}
     <div class="tab features" data-group="primary" data-tab="features">
-      <section class="grid grid-2col">
-        <div id="impulses" class="flexcol">
+      <section id="grid-details" >
+        <div id="impulses">
           <div class="area-label">Impulses</div>
+          <div class="impulse-input">
+            <label for="system.impulses.names" class="resource-label">Names</label>
+            <textarea name="system.impulses.names" value="{{system.impulses.names}}" data-dtype="String"></textarea>
+          </div>
+          <div class="impulse-input">
+              <label for="system.impulses.triggers" class="resource-label">Triggers</label>
+              <textarea name="system.impulses.triggers" value="{{system.impulses.triggers}}" data-dtype="String"></textarea>
+          </div>
+          <div class="impulse-input">
+              <label for="system.impulses.downtime" class="resource-label">Downtime</label>
+              <textarea name="system.impulses.downtime" value="{{system.impulses.downtime}}" data-dtype="String"></textarea>
+          </div>
         </div>
 
-        <div id="skills" class="flexcol">
+        <div id="skills">
           <div class="area-label">Skills</div>
+          {{> "systems/subversion/templates/actor/parts/actor-skills.hbs"}}
         </div>
         <!--
             <div class="abilities flexcol">

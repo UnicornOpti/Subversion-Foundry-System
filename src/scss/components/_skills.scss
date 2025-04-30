@@ -1,0 +1,82 @@
+//Section Header
+.skills-header {
+    height: 24px;
+    margin: 4px 6px 0px;
+    padding: 0;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    
+    > * {
+      font-size: 16px;
+      text-align: center;
+      font-family: 'Goodbrush', sans-serif;
+      text-shadow: var(--stdshadow);
+    }
+    .skill-name {
+      text-align: left;
+      flex-basis: 20%;
+      flex-grow: 1;
+      // font-size: 16px;
+    }
+    .skill-attr {
+        text-align: right;
+        flex-basis: 10%;
+        flex-grow: 0.5;
+    }
+}
+
+div#skills  {
+    position: relative;
+    > .area-label {
+        font-size: 32px;
+        text-align: center;
+        font-family: 'Goodbrush', sans-serif;
+        color: rgba(150, 120, 70, 0.6);
+        position: absolute;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.skill {
+    background: rgb(223, 209, 185);
+    padding: 8px;
+    margin: 6px;
+    
+
+    input {
+        max-width: 75%;
+        text-align: center;
+        
+    }
+
+    .skill-input {
+        text-align: center;
+    }
+
+    .skill-name, .skill-attr {
+        font-family: 'Goodbrush', sans-serif;
+        font-size: 16px;
+        color: var(--darkblue);
+        padding-top: 4px;
+    }
+
+    .skill-name {
+        flex-basis: 20%;
+        flex-grow: 1;
+    }
+
+    .skill-attr {
+        flex-basis: 10%;
+        flex-grow: 0.5;
+        text-align: right;
+    }
+    
+}
+
+.skills-list {
+    background: rgba(150, 120, 70, 0.6);
+    padding-bottom: 10px;
+    margin-top: 30px;
+}

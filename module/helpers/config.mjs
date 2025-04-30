@@ -36,3 +36,18 @@ SUBVERSION.skills = {
   sci: 'SUBVERSION.Skill.Sci',
   tec: 'SUBVERSION.Skill.Tec'
 }
+
+SUBVERSION.skillDefaults = {
+  art: 'cha',
+  dec: 'cha',
+  hum: 'wit',
+  inf: 'cha',
+  mag: 'wil',
+  mel: 'agi',
+  obs: 'awr',
+  phy: 'agi',
+  pil: 'awr',
+  ran: 'agi',
+  sci: 'wit',
+  tec: 'wit'
+}
