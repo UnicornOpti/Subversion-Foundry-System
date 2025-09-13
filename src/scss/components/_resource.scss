@@ -1,3 +1,80 @@
-.resource-label {
-  font-weight: bold;
+/*
+ Torn left edge banner
+
+ License: GPL 3.0
+ License URL: https://www.gnu.org/licenses/gpl-3.0.en.html
+
+ Structure:
+ <div class="torn_container torn_left torn_right">
+	<div></div>
+	<div>Torn Edge Banner</div>
+ </div>
+*/
+
+body{
+	/* Settings */
+	--torn-shadow-offset-x:-2px;
+	--torn-shadow-offset-y:2px;
+	--torn-shadow-background-color:rgba(0,0,0,0.25);
+	--torn-background-color:#f15a2b;
+	--torn-left-width:8px;
+	--torn-right-width:8px;
+	--torn-left-clip-path:polygon(59% 0%, 43% 3%, 30% 7%, 94% 10%, 25% 14%, 39% 17%, 75% 21%, 12% 24%, 66% 28%, 19% 31%, 20% 34%, 4% 38%, 1% 41%, 56% 45%, 7% 48%, 38% 52%, 92% 55%, 86% 59%, 29% 62%, 96% 66%, 27% 69%, 68% 72%, 38% 76%, 12% 79%, 92% 83%, 38% 86%, 98% 90%, 15% 93%, 60% 97%, 70% 100%, calc(100% + 1px) 100%, calc(100% + 1px) 0%);
+	--torn-right-clip-path:polygon(15% 0%, 87% 3%, 40% 7%, 49% 10%, 28% 14%, 93% 17%, 88% 21%, 4% 24%, 59% 28%, 93% 31%, 47% 34%, 70% 38%, 76% 41%, 67% 45%, 9% 48%, 35% 52%, 3% 55%, 58% 59%, 41% 62%, 16% 66%, 95% 69%, 71% 72%, 83% 76%, 54% 79%, 29% 83%, 76% 86%, 14% 90%, 19% 93%, 50% 97%, 62% 100%, -10% 100%, -10% 0%);
+}
+
+.torn_container{
+	float:left;
+	clear:both;
+	margin-bottom:1.2em;
+	position:relative;
+}
+.torn_container>div:first-child{
+	margin-left:var(--torn-shadow-offset-x);
+	margin-top:var(--torn-shadow-offset-y);
+	left:0px;
+	top:0px;
+	right:calc(0px - var(--torn-shadow-offset-x));
+	bottom:calc(0px - var(--torn-shadow-offset-y));
+	position:absolute;
+	z-index:1;
+	filter:blur(var(--torn-shadow-blur));
+}
+.torn_container>div:nth-child(2), .torn_container>div:nth-child(2)>span{
+	vertical-align:middle;
+}
+.torn_container>div:nth-child(2), .torn_left>div:nth-child(2):before, .torn_right>div:nth-child(2):after{
+	background-color:var(--torn-background-color);
+}
+.torn_container>div:nth-child(2), .torn_container>div:nth-child(2){
+	display:inline-block;
+	position:relative;
+	z-index:2;
+	padding:0.4em;
+}
+.torn_left>div:nth-child(2):before, .torn_left>div:first-child:before{
+	content:'';
+	position:absolute;
+	left:calc(0em - var(--torn-left-width));
+	top:0px;
+	width:var(--torn-left-width);
+	bottom:0px;
+	-webkit-clip-path:var(--torn-left-clip-path);
+	clip-path:var(--torn-left-clip-path);
+}
+.torn_container>div:first-child, .torn_left>div:first-child:before, .torn_right>div:first-child:after{
+	background-color:var(--torn-shadow-background-color);
+}
+.torn_right>div:nth-child(2):after, .torn_right>div:first-child:after{
+	content:'';
+	position:absolute;
+	left:100%;
+	top:0px;
+	right:calc(0px - var(--torn-right-width));
+	bottom:0px;
+	-webkit-clip-path:var(--torn-right-clip-path);
+	clip-path:var(--torn-right-clip-path);
+}
+.torn_right>div:nth-child(2):after{
+	left:calc(100% - 0.5px);
 }

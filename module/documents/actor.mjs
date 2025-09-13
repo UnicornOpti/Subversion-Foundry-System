@@ -65,5 +65,4 @@ export class SubversionActor extends Actor {
 
     return result;
   }
-
 }

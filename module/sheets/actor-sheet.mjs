@@ -160,10 +160,10 @@ export class SubversionActorSheet extends ActorSheet {
     // Everything below here is only needed if the sheet is editable
     if (!this.isEditable) return;
 
-    html.on('click', 'div.consequence-holder > input', (ev) => {
+    html.on('click', 'div#consequence-holder > input.consBox', (ev) => {
       const chkbox = $(ev.currentTarget);
       const val = chkbox.is(':checked') ? chkbox.val() : chkbox.val() - 1;
-      $('div.consequence-holder > input[name="system.consequences.value"]').val(val);
+      $('div#consequence-holder > input[name="system.consequences.value"]').val(val);
     });
 
     // Add Inventory Item

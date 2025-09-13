@@ -12,23 +12,24 @@
     
     <div id="header-main" class="flex-fullwidth header-fields grid">
       <div id="header-left-values" class="flexcol" style="flex-grow: 0.5">
-        <div>
+        <div class="torn-background" style="background-color: rgba(157, 175, 186, 80);"></div>
+        <div class="system-value">
           <label for="system.pronouns" class="resource-label">Pronouns</label>
           <input type="text", name="system.pronouns" value="{{system.pronouns}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.lineage" class="resource-label">Lineage</label>
           <input type="text", name="system.lineage" value="{{system.lineage}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.origin" class="resource-label">Origin</label>
           <input type="text", name="system.origin" value="{{system.origin}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.caste" class="resource-label">Caste</label>
-          <input type="text", name="system.pronouns" value="{{system.caste}}" data-dtype="String"/>
+          <input type="text", name="system.caste" value="{{system.caste}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.debt" class="resource-label">Debt</label>
           <input type="text", name="system.debt" value="{{system.debt}}" data-dtype="String"/>
         </div>
@@ -69,19 +70,20 @@
       </div>
 
       <div id="header-right-values" class="flexcol" style="flex-grow: 0.5">
-        <div>
+        <div class="torn-background torn-left" style="background-color: rgba(157, 175, 186, 80);"></div>
+        <div class="system-value">
           <label for="system.ideology" class="resource-label">Ideology</label>
           <input type="text", name="system.ideology" value="{{system.ideology}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.value1" class="resource-label">Value</label>
           <input type="text", name="system.value1" value="{{system.value1}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.value2" class="resource-label">Value</label>
           <input type="text", name="system.value2" value="{{system.value2}}" data-dtype="String"/>
         </div>
-        <div>
+        <div class="system-value">
           <label for="system.value3" class="resource-label">Value</label>
           <input type="text", name="system.value3" value="{{system.value3}}" data-dtype="String"/>
         </div>
@@ -148,14 +150,14 @@
               </div>
             </div>
           </div>
-          <div class="area-label">Consequences</div>
+          <div id="consequence-banner" class="resource-label">Consequences</div>
           <div>
-            <div class="consequence-holder flexrow align-center">
-              <input type="checkbox" name="system.consequences.show.show1" value="1" data-dtype="Boolean" {{checked system.consequences.show.show1}}/>
-              <input type="checkbox" name="system.consequences.show.show2" value="2" data-dtype="Boolean" {{checked system.consequences.show.show2}}/>
-              <input type="checkbox" name="system.consequences.show.show3" value="3" data-dtype="Boolean" {{checked system.consequences.show.show3}}/>
-              <input type="checkbox" name="system.consequences.show.show4" value="4" data-dtype="Boolean" {{checked system.consequences.show.show4}}/>
-              <input type="checkbox" name="system.consequences.show.show5" value="5" data-dtype="Boolean" {{checked system.consequences.show.show5}}/>
+            <div id="consequence-holder" class="flexrow align-center">
+              <input type="checkbox" id="consBox1" class="consBox" name="system.consequences.show.show1" value="1" data-dtype="Boolean" {{checked system.consequences.show.show1}}/>
+              <input type="checkbox" id="consBox2" class="consBox" name="system.consequences.show.show2" value="2" data-dtype="Boolean" {{checked system.consequences.show.show2}}/>
+              <input type="checkbox" id="consBox3" class="consBox" name="system.consequences.show.show3" value="3" data-dtype="Boolean" {{checked system.consequences.show.show3}}/>
+              <input type="checkbox" id="consBox4" class="consBox" name="system.consequences.show.show4" value="4" data-dtype="Boolean" {{checked system.consequences.show.show4}}/>
+              <input type="checkbox" id="consBox5" class="consBox" name="system.consequences.show.show5" value="5" data-dtype="Boolean" {{checked system.consequences.show.show5}}/>
               <input type="hidden" name="system.consequences.value" value="{{system.consequences.value}}" data-dtype="Number" />
             </div>        
             <label for="system.consequences" class="resource-label">+1 Instance of Dulled Each</label>
@@ -163,7 +165,7 @@
       </div>
     </div>
   </header>
-
+  <div id="tab-separator-line"></div>
   {{!-- Sheet Tab Navigation --}}
   <nav class="sheet-tabs tabs" data-group="primary">
     {{!-- Default tab is specified in actor-sheet.mjs --}}
@@ -184,15 +186,15 @@
           <div class="area-label">Impulses</div>
           <div class="impulse-input">
             <label for="system.impulses.names" class="resource-label">Names</label>
-            <textarea name="system.impulses.names" value="{{system.impulses.names}}" data-dtype="String"></textarea>
+            <textarea type="text" name="system.impulses.names" data-dtype="String" >{{system.impulses.names}}</textarea>
           </div>
           <div class="impulse-input">
               <label for="system.impulses.triggers" class="resource-label">Triggers</label>
-              <textarea name="system.impulses.triggers" value="{{system.impulses.triggers}}" data-dtype="String"></textarea>
+              <textarea name="system.impulses.triggers" data-dtype="String">{{system.impulses.triggers}}</textarea>
           </div>
           <div class="impulse-input">
               <label for="system.impulses.downtime" class="resource-label">Downtime</label>
-              <textarea name="system.impulses.downtime" value="{{system.impulses.downtime}}" data-dtype="String"></textarea>
+              <textarea name="system.impulses.downtime" data-dtype="String">{{system.impulses.downtime}}</textarea>
           </div>
         </div>
 
@@ -204,9 +206,9 @@
             <div class="abilities flexcol">
             {{#each system.abilities as |ability key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.mod" data-label="{{localize (lookup @root.config.abilities key)}}">{{localize (lookup @root.config.abilities key)}}</label>
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" data-roll="d20+@abilities.{{key}}.value" data-label="{{localize (lookup @root.config.abilities key)}}">{{localize (lookup @root.config.abilities key)}}</label>
               <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
-              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.mod" data-label="{{localize (lookup @root.config.abilities key)}}">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+              <span class="ability-mod rollable" data-roll="d20+@abilities.{{key}}.value" data-label="{{localize (lookup @root.config.abilities key)}}">{{numberFormat ability.value decimals=0 sign=true}}</span>
             </div>
             {{/each}}
           </div>

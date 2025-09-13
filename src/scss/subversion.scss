@@ -33,17 +33,21 @@
   --darkblue: #2b3a56;
   --salmon:  rgb(141, 89, 106);
   --stdshadow: 2px 1px rgb(50,50,50);
+  --skillbrown: rgba(150, 120, 70, 0.6);
+
+  --tornpaper: url('/systems/subversion/assets/torn_paper.png');
 
   #header-main {
-    grid-template-columns: 25% 40% 25%;
-    padding-left: 5%;
+    grid-template-columns: 28% 40% 28%;
+    padding-left: 2%;
+    gap: 0px;
   }
 
   div.attribute-values {
     padding: 0 10px;
   }
 
-  label.resource-label {
+  .resource-label {
     font-family: 'Goodbrush', sans-serif;
   }
 
@@ -51,12 +55,37 @@
     margin: 10px 0px 0px 0px;
   }
 
+  div.torn-background {
+    mask: var(--tornpaper);
+    mask-position: right top;
+    mask-repeat: repeat-y;
+    mask-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  div.torn-background.torn-left {
+    transform: rotate(180deg);
+  }
+
+  div.torn-background.torn-bottom {
+    transform: rotate(90deg);
+  }
+
+  div.torn-background.torn-top {
+    transform: rotate(270deg);
+  }
+
   #header-left-values, #header-right-values {
-    background-color: rgba(157, 175, 186, 80);
     padding: 10px;
-    & > div {
+    position: relative;
+    & > div.system-value {
       position: relative;
       margin-bottom: 6px;
+      padding: 0 15px;
 
       input {
         height: 100%;
@@ -66,9 +95,9 @@
       label {
         position: absolute;
         bottom: 2px;
-        right: 5px;
+        right: 18px;
         color: white;
-        padding: 2px;
+        padding: 4px 1px 1px 4px;
         display: inline-block;
       }
     }
@@ -102,6 +131,7 @@
       display: inline-block;
       width: 100%;
       padding: 1px;
+      color: var(--darkblue);
     }
 
     input, img {
@@ -124,6 +154,7 @@
       color: white;
       font-weight: bold;
       text-shadow: var(--stdshadow);
+      
     }
 
     label.resource-label {
@@ -144,7 +175,7 @@
 
   div#header-defense {
     .area-label {
-      background-color: gray;
+      background-color: rgba(112, 128, 144, 0.6);
     }
 
     div.flexrow {
@@ -154,11 +185,11 @@
         flex-grow: 0;
         flex-basis: 110px;
         padding: 6px 20px;
-        background-color: slategray;
+        background-color: rgb(112, 128, 144);
       }
     }
 
-    div.flexrow:last-child {
+    /*div.flexrow:last-child {
       div {
         background-color: goldenrod;
       }
@@ -166,16 +197,30 @@
         background-color: rgb(90,90,90);
       }
 
-    }
+    }*/
   }
 
   div#header-condition {
 
     .area-label {
+      background-color: rgba(141, 89, 106, 0.6);
+    }
+
+    .resource-label {
+      color: white;
+      text-shadow: var(--stdshadow);
+      text-align: center;
+      font-size: 16px;
+    }
+
+    div#consequence-banner {
       background-color: var(--salmon);
+      border-radius: 10px 10px 0px 0px;
+      width: 50%;
+      margin-left: 25%;
     }
     
-    div.consequence-holder {
+    div#consequence-holder {
       background-color: var(--salmon);
       border-radius: 0px 0px 10px 10px;
       width: 90%;
@@ -234,6 +279,35 @@
     }
   }
 
+  div#tab-separator-line {
+    position: relative;
+    border-bottom: 6px #88989e double;
+    top: 21px;
+    z-index: 4;
+    flex: 0;
+  }
+
+  .sheet-tabs {
+    border-top: unset!important;
+    border-bottom: unset!important;
+    > a {
+      z-index: 5;
+      font-family: 'Goodbrush', sans-serif;
+      color: var(--darkblue);
+      font-size: 16px;
+    }
+
+    > [data-tab] {
+      background-color: #f5f2d7;
+      text-shadow: none;
+    }
+
+    > [data-tab].active {
+      background-color: #f9ee91;
+      text-shadow: none;
+    }
+  }
+
   #grid-details {
     display: grid;
     grid-column: span 2 / span 2;
@@ -248,7 +322,7 @@
       font-size: 32px;
       text-align: center;
       font-family: 'Goodbrush', sans-serif;
-      background: #f9ee91;
+      background: var(--skillbrown);
       color: white;
       text-shadow: var(--stdshadow);
       margin-bottom: 8px;
@@ -257,23 +331,24 @@
     div.impulse-input {
       position: relative;
       margin-bottom: 6px;
-      border: solid 2px var(--yellow);
+      border: solid 2px var(--skillbrown);
       border-radius: 4px;
 
       textarea {
         border: none;
         padding-top: 8px;
         background-color: white;
+        min-height: 75px;
       }
 
       label {
         position: absolute;
-        bottom: 2px;
-        right: 2px;
+        bottom: 0px;
+        right: 0px;
         text-align: right;
         color: white;
-        background-color: var(--yellow);
-        padding: 2px;
+        background-color: var(--skillbrown);
+        padding: 4px 1px 1px 4px;
         display: inline-block;
         text-shadow: var(--stdshadow);
       }

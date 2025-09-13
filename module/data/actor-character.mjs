@@ -125,4 +125,17 @@ export default class SubversionCharacter extends SubversionActorBase {
 
     return data
   }
+
+    /**
+   * Set the Consequence value using the checkbox UI
+   * @param {number} index The number of the consequence box clicked
+   */
+  setConsequenceValue(index) {
+    if( this.consequences.show[index] ) {
+      this.consequences.value = index;
+    }
+    else {
+      this.consequences.value = index - 1;
+    }
+  }
 }

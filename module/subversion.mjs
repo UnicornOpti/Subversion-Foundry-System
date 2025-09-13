@@ -10,6 +10,9 @@ import { SUBVERSION } from './helpers/config.mjs';
 // Import DataModel classes
 import * as models from './data/_module.mjs';
 
+// Import Tornpaper library
+//import Tornpaper from './tornpaper.js';
+
 /* -------------------------------------------- */
 /*  Init Hook                                   */
 /* -------------------------------------------- */
@@ -29,11 +32,11 @@ Hooks.once('init', function () {
   /**
    * Set an initiative formula for the system
    * @type {String}
-   */
+   *
   CONFIG.Combat.initiative = {
     formula: '1d20 + @abilities.dex.mod',
     decimals: 2,
-  };
+  };*/
 
   // Define custom Document and DataModel classes
   CONFIG.Actor.documentClass = SubversionActor;
