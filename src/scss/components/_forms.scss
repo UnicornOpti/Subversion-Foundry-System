@@ -29,6 +29,25 @@
   }
 }
 
+.sheet-header.item-header {
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  .itemname {
+    height: 26px;
+    input {
+      width: 100%;
+      height: 26px;
+      margin: 0;
+    }
+  }
+
+  .item-img {
+    height: 80px;
+    width: 80px;
+    background: var(--listbackground);
+  }
+}
+
 .sheet-tabs {
   flex: 0;
 }

@@ -1,14 +1,26 @@
+.items-header .effect-controls {
+  flex-basis: 125px;
+}
+
 .effects .item {
   .effect-source,
   .effect-duration,
   .effect-controls {
     text-align: center;
-    border-left: 1px solid #c9c7b8;
-    border-right: 1px solid #c9c7b8;
-    font-size: 12px;
+    border-left: 1px solid var(--listbackground);
+    border-right: 1px solid var(--listbackground);
+    
   }
 
   .effect-controls {
     border: none;
+    flex-basis: 125px;
+  }
+}
+
+.effect {
+  img.item-image {
+    flex-grow: 0;
+    flex-basis: 24px;
   }
 }

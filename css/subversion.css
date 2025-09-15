@@ -233,7 +233,8 @@
   --darkblue: #2b3a56;
   --salmon: rgb(141, 89, 106);
   --stdshadow: 2px 1px rgb(50,50,50);
-  --skillbrown: rgba(150, 120, 70, 0.6);
+  --listbackground: rgba(150, 120, 70, 0.6);
+  --rowbackground: rgb(223, 209, 185);
   --tornpaper: url("/systems/subversion/assets/torn_paper.png");
 }
 .subversion .item-form {
@@ -261,6 +262,23 @@
 .subversion .sheet-header .charname input {
   width: 100%;
   margin: 0;
+}
+.subversion .sheet-header.item-header {
+  flex-wrap: nowrap;
+  align-items: flex-start;
+}
+.subversion .sheet-header.item-header .itemname {
+  height: 26px;
+}
+.subversion .sheet-header.item-header .itemname input {
+  width: 100%;
+  height: 26px;
+  margin: 0;
+}
+.subversion .sheet-header.item-header .item-img {
+  height: 80px;
+  width: 80px;
+  background: var(--listbackground);
 }
 .subversion .sheet-tabs {
   flex: 0;
@@ -344,16 +362,15 @@
 }
 .subversion .items-header {
   height: 28px;
-  margin: 2px 0;
   padding: 0;
   align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
-  font-weight: bold;
+  color: white;
 }
 .subversion .items-header > * {
-  font-size: 14px;
+  font-size: 16px;
   text-align: center;
+  font-family: "Goodbrush", sans-serif;
+  text-shadow: var(--stdshadow);
 }
 .subversion .items-header .item-name {
   font-weight: bold;
@@ -362,12 +379,14 @@
   display: flex;
 }
 .subversion .items-list {
-  list-style: none;
+  /*list-style: none;
   margin: 0;
   padding: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: #444;
+  color: $c-tan;*/
+  background: var(--listbackground);
+  padding-left: 0px;
 }
 .subversion .items-list .item-list {
   list-style: none;
@@ -378,7 +397,6 @@
   flex: 2;
   margin: 0;
   overflow: hidden;
-  font-size: 13px;
   text-align: left;
   align-items: center;
   display: flex;
@@ -394,45 +412,37 @@
   justify-content: flex-end;
 }
 .subversion .items-list .item-controls a {
-  font-size: 12px;
   text-align: center;
   margin: 0 6px;
 }
 .subversion .items-list .item {
   align-items: center;
   padding: 0 2px;
-  border-bottom: 1px solid #c9c7b8;
+  border-bottom: 1px solid var(--listbackground);
+  background: var(--rowbackground);
 }
 .subversion .items-list .item:last-child {
   border-bottom: none;
 }
-.subversion .items-list .item .item-name {
-  color: #191813;
-}
 .subversion .items-list .item .item-name .item-image {
-  flex: 0 0 30px;
-  height: 30px;
-  background-size: 30px;
+  background: var(--listbackground);
   border: none;
-  margin-right: 5px;
+  margin: 2px 5px;
 }
 .subversion .items-list .item-prop {
   text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
+  border-left: 1px solid var(--listbackground);
+  border-right: 1px solid var(--listbackground);
   font-size: 12px;
 }
 .subversion .items-list .items-header {
   height: 28px;
-  margin: 2px 0;
   padding: 0;
   align-items: center;
-  background: rgba(0, 0, 0, 0.05);
-  border: 2px groove #eeede0;
+  background: var(--listbackground);
   font-weight: bold;
 }
 .subversion .items-list .items-header > * {
-  font-size: 12px;
   text-align: center;
 }
 .subversion .items-list .items-header .item-name {
@@ -443,16 +453,23 @@
   flex: 0 0 200px;
   padding: 0 8px;
 }
+.subversion .items-header .effect-controls {
+  flex-basis: 125px;
+}
 .subversion .effects .item .effect-source,
 .subversion .effects .item .effect-duration,
 .subversion .effects .item .effect-controls {
   text-align: center;
-  border-left: 1px solid #c9c7b8;
-  border-right: 1px solid #c9c7b8;
-  font-size: 12px;
+  border-left: 1px solid var(--listbackground);
+  border-right: 1px solid var(--listbackground);
 }
 .subversion .effects .item .effect-controls {
   border: none;
+  flex-basis: 125px;
+}
+.subversion .effect img.item-image {
+  flex-grow: 0;
+  flex-basis: 24px;
 }
 .subversion .skills-header {
   height: 24px;
@@ -484,20 +501,20 @@
   font-size: 32px;
   text-align: center;
   font-family: "Goodbrush", sans-serif;
-  color: var(--skillbrown);
+  color: var(--listbackground);
   position: absolute;
   text-align: center;
   width: 100%;
 }
 .subversion .skill {
-  background: rgb(223, 209, 185);
+  background: var(--rowbackground);
   padding: 8px;
   margin: 6px;
 }
 .subversion .skill input {
   max-width: 75%;
   text-align: center;
-  outline: none;
+  outline: none !important;
 }
 .subversion .skill input :hover {
   outline: none;
@@ -521,7 +538,7 @@
   text-align: right;
 }
 .subversion .skills-list {
-  background: var(--skillbrown);
+  background: var(--listbackground);
   padding-bottom: 10px;
   margin-top: 30px;
 }
@@ -700,6 +717,9 @@
   color: var(--salmon);
   text-shadow: none;
 }
+.subversion h3 {
+  border-bottom: unset;
+}
 .subversion input {
   background-color: rgb(255, 255, 255);
 }
@@ -754,7 +774,7 @@
   font-size: 32px;
   text-align: center;
   font-family: "Goodbrush", sans-serif;
-  background: var(--skillbrown);
+  background: var(--listbackground);
   color: white;
   text-shadow: var(--stdshadow);
   margin-bottom: 8px;
@@ -762,7 +782,7 @@
 .subversion div#impulses div.impulse-input {
   position: relative;
   margin-bottom: 6px;
-  border: solid 2px var(--skillbrown);
+  border: solid 2px var(--listbackground);
   border-radius: 4px;
 }
 .subversion div#impulses div.impulse-input textarea {
@@ -777,8 +797,10 @@
   right: 0px;
   text-align: right;
   color: white;
-  background-color: var(--skillbrown);
+  background-color: var(--listbackground);
   padding: 4px 1px 1px 4px;
   display: inline-block;
   text-shadow: var(--stdshadow);
 }
+
+/*# sourceMappingURL=subversion.css.map */

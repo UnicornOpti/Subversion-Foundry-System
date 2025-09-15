@@ -33,7 +33,8 @@
   --darkblue: #2b3a56;
   --salmon:  rgb(141, 89, 106);
   --stdshadow: 2px 1px rgb(50,50,50);
-  --skillbrown: rgba(150, 120, 70, 0.6);
+  --listbackground: rgba(150, 120, 70, 0.6);
+  --rowbackground: rgb(223, 209, 185);
 
   --tornpaper: url('/systems/subversion/assets/torn_paper.png');
 
@@ -258,6 +259,10 @@
     }
   }
 
+  h3 {
+    border-bottom: unset;
+  }
+
   input {
     background-color: rgba(255,255,255, 70);
   }
@@ -322,7 +327,7 @@
       font-size: 32px;
       text-align: center;
       font-family: 'Goodbrush', sans-serif;
-      background: var(--skillbrown);
+      background: var(--listbackground);
       color: white;
       text-shadow: var(--stdshadow);
       margin-bottom: 8px;
@@ -331,7 +336,7 @@
     div.impulse-input {
       position: relative;
       margin-bottom: 6px;
-      border: solid 2px var(--skillbrown);
+      border: solid 2px var(--listbackground);
       border-radius: 4px;
 
       textarea {
@@ -347,7 +352,7 @@
         right: 0px;
         text-align: right;
         color: white;
-        background-color: var(--skillbrown);
+        background-color: var(--listbackground);
         padding: 4px 1px 1px 4px;
         display: inline-block;
         text-shadow: var(--stdshadow);
