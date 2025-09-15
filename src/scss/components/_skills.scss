@@ -47,11 +47,11 @@ div#skills  {
     input {
         max-width: 75%;
         text-align: center;
-        
-    }
+        outline: none !important; //needed to override foundry default styles
 
-    input:disabled {
-        outline: none;
+        :hover {
+            outline: none;
+        }
     }
 
     .skill-input {

@@ -497,8 +497,9 @@
 .subversion .skill input {
   max-width: 75%;
   text-align: center;
+  outline: none;
 }
-.subversion .skill input:disabled {
+.subversion .skill input :hover {
   outline: none;
 }
 .subversion .skill .skill-input {
