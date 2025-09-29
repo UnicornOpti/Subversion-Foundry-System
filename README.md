@@ -1,6 +1,6 @@
 # Subversion for Foundry VTT
 
-![Foundry v11](https://img.shields.io/badge/foundry-v11-green)
+![Foundry v13](https://img.shields.io/badge/foundry-v13-green)
 
 This system is the beta version of the Subversion RPG for Foundry VTT.
 
