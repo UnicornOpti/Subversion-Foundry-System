@@ -255,6 +255,7 @@
 .subversion .sheet-header #profile-img {
   height: 200px;
   width: 150px;
+  background: var(--listbackground);
 }
 .subversion .sheet-header .charname {
   height: 30px;
@@ -541,6 +542,9 @@
   background: var(--listbackground);
   padding-bottom: 10px;
   margin-top: 30px;
+}
+.subversion .items-header .feature-controls {
+  flex-basis: 125px;
 }
 .subversion #header-main {
   grid-template-columns: 28% 40% 28%;

@@ -18,7 +18,7 @@ export class SubversionActorSheet extends ActorSheet {
         {
           navSelector: '.sheet-tabs',
           contentSelector: '.sheet-body',
-          initial: 'features',
+          initial: 'main',
         },
       ],
     });
@@ -105,18 +105,6 @@ export class SubversionActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const features = [];
-    const spells = {
-      0: [],
-      1: [],
-      2: [],
-      3: [],
-      4: [],
-      5: [],
-      6: [],
-      7: [],
-      8: [],
-      9: [],
-    };
 
     // Iterate through items, allocating to containers
     for (let i of context.items) {
@@ -129,18 +117,11 @@ export class SubversionActorSheet extends ActorSheet {
       else if (i.type === 'feature') {
         features.push(i);
       }
-      // Append to spells.
-      else if (i.type === 'spell') {
-        if (i.system.spellLevel != undefined) {
-          spells[i.system.spellLevel].push(i);
-        }
-      }
     }
 
     // Assign and return
     context.gear = gear;
     context.features = features;
-    context.spells = spells;
   }
 
   /* -------------------------------------------- */
@@ -168,6 +149,8 @@ export class SubversionActorSheet extends ActorSheet {
 
     // Add Inventory Item
     html.on('click', '.item-create', this._onItemCreate.bind(this));
+
+    html.on('click', '.feature-create', this._onFeatureCreate.bind(this));
 
     // Delete Inventory Item
     html.on('click', '.item-delete', (ev) => {
@@ -201,6 +184,16 @@ export class SubversionActorSheet extends ActorSheet {
     }
   }
 
+
+    /**
+   * @param {Event} event   The originating click event
+   * @private
+   */
+  async _onFeatureCreate(event) {
+    event.preventDefault();
+    alert("Bug with feature creation right now, this will be fixed soon!");
+  }
+
   /**
    * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
    * @param {Event} event   The originating click event
@@ -212,7 +205,7 @@ export class SubversionActorSheet extends ActorSheet {
     // Get the type of item to create.
     const type = header.dataset.type;
     // Grab any data associated with this control.
-    const data = duplicate(header.dataset);
+    const data = foundry.utils.duplicate(header.dataset);
     // Initialize a default name.
     const name = `New ${type.capitalize()}`;
     // Prepare the item object.
