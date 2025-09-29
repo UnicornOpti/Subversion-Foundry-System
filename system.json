@@ -2,9 +2,20 @@
   "id": "subversion",
   "title": "Subversion",
   "description": "The Subversion system for FoundryVTT.",
+  "license": "LICENSE.txt",
   "authors": [
     {
-      "name": "Brandon Gurwitz"
+      "name": "Fragging Unicorns Games",
+      "url": "https://www.fraggingunicorns.com/subversion"
+    },
+    {
+      "name": "O.C. \"Opti\" Presley",
+      "discord": "unicorn_opti"
+    },
+    {
+      "name": "Brandon Gurwitz",
+      "email": "brandon@solar-studios.com",
+      "discord": "chuckfinley"
     }
   ],
   "media": [
@@ -14,10 +25,11 @@
       "thumbnail": "systems/subversion/assets/anvil-impact.png"
     }
   ],
-  "version": "2.0.0",
+  "url": "https://github.com/UnicornOpti/Subversion-Foundry-System",
+  "version": "0.9.0",
   "compatibility": {
     "minimum": 11,
-    "verified": "12.331"
+    "verified": "13.347"
   },
   "esmodules": ["module/subversion.mjs"],
   "styles": ["css/subversion.css"],
